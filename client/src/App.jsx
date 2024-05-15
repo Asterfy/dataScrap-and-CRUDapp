@@ -11,9 +11,6 @@ function App() {
         <Route path="/topics" element={<Topics/>} />
         <Route path="/teachers" element={<Teachers/>} />
       </Routes>
-      <div>
-        <h1>Simulation</h1>
-      </div>
     </BrowserRouter>
   );
 }
