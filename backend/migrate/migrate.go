@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/asterfy/go-crud/initializers"
-	"github.com/asterfy/go-crud/models"
+	// "github.com/asterfy/go-crud/models"
 )
 
 func init() {
@@ -11,5 +11,6 @@ func init() {
 }
 
 func main() {
-	initializers.DB.AutoMigrate(&models.Post{})
+	// initializers.DB.AutoMigrate(&models.Docente{})
+	// initializers.DB.AutoMigrate(&models.Asignatura{})
 }

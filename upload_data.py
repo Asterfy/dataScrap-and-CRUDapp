@@ -1,4 +1,3 @@
-from pymongo import MongoClient
 import psycopg2
 import json
 
@@ -44,18 +43,6 @@ def get_teachers(cursos):
         array_names.append(teacher)
     return array_names
 
-#Insertar datos en mongoDB
-def insert_docs(array_docs, db_name, db_collection):
-    # Conexión a la base de datos MongoDB
-    cliente = MongoClient('localhost', 27017)
-    db = cliente[db_name]
-    coleccion = db[db_collection]
-    # Insertar los documentos en la base de datos
-    coleccion.insert_many(array_docs)
-    # Cerrar la conexión a la base de datos
-    cliente.close()
-    print("Documentos insertados en la colección:", db_collection)
-
 #Insertar datos en PostgreeSQL
 def create_conection():
     conn = psycopg2.connect(database="db_univ",
@@ -85,9 +72,6 @@ def insert_teachers(teachers):
         conn.commit()
     print("Docentes insertados en la tabla: docente")
 
-
-
-
 # Leer archivo JSON
 with open('data_horarios.json') as archivo:
     horarios = json.load(archivo)
@@ -96,10 +80,6 @@ with open('data_horarios.json') as archivo:
 topics = get_topics(horarios)
 teachers = get_teachers(horarios)
 
-
-#Insertar data en mongoDB
-# insert_docs(topics, "db_universidad", "Asignaturas")
-# insert_docs(teachers, "db_universidad", "Docentes")
 
 #Insertar data en PostgreeSQL
 # insert_topics(topics)

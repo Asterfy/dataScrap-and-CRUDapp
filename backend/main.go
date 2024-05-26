@@ -21,16 +21,17 @@ func main() {
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 	r.Use(cors.New(config))
 
-	r.GET("/api/posts/", controllers.PostIndex)
-	r.GET("/api/posts/:id", controllers.PostsShow)
-	r.POST("/posts", controllers.PostsCreate)
-	r.PUT("/api/posts/:id", controllers.PostsUpdate)
-	r.DELETE("/api/posts/:id", controllers.PostsDelete)
-
 	r.GET("/api/topics/", controllers.GetTopics)
-	r.GET("/api/topics/:id", controllers.GetTopic)
+	r.GET("/api/topics/:id/", controllers.GetTopic)
+	r.POST("/api/topics/", controllers.CreateTopic)
+	r.PUT("/api/topics/:id/", controllers.PutTopic)
+	r.DELETE("/api/topics/:id/", controllers.DeleteTopic)
 
 	r.GET("/api/teachers/", controllers.GetTeachers)
+	r.GET("/api/teachers/:id/", controllers.GetTeacher)
+	r.POST("/api/teachers/", controllers.CreateTeacher)
+	r.PUT("/api/teachers/:id/", controllers.PutTeacher)
+	r.DELETE("/api/teachers/:id/", controllers.DeleteTeacher)
 
 	r.Run()
 }
