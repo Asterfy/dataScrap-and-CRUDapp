@@ -206,3 +206,4 @@ dist-ssr
 *.sln
 *.sw?
 
+data_horarios.json
