@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { createTopic, updateTopic } from "../api/data.api";
 import { useEffect } from "react";
-import toast from 'react-hot-toast'
+import toast from "react-hot-toast";
 
 export function FormTopic({ topic, closeModal, loadTable }) {
   const {
